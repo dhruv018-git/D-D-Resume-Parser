@@ -449,6 +449,8 @@ def batch_analyze():
     }), 200
  
 # Yeh line check karti hai ki script ko direct run kiya gaya hai
+import os
+
 if __name__ == "__main__":
-    # Run without the reloader/debugger to avoid the double-process behavior
-    app.run(host='127.0.0.1', port=5000, debug=False)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
