@@ -1,0 +1,1 @@
+David Lopez\nEmail: david@example.com\nPhone: +1 555-123-4567\nSkills: Python, NLP, React, Leadership\nExperience: Warehouse Manager (2017-2021)\nSummary: Experienced manager with strong leadership and process optimization skills.

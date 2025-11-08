@@ -1,0 +1,18 @@
+# DAY 3 TEST: Resume Matcher API Test
+# Endpoint: http://127.0.0.1:5000/upload
+
+POST http://127.0.0.1:5000/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="hr_skills"
+
+Python, API Development, NLP, Web Scraping, Flask, Communication
+
+--WebAppBoundary
+Content-Disposition: form-data; name="resume_file"; filename="sample_resume.txt"
+Content-Type: text/plain
+
+< ./sample_resume.txt
+
+--WebAppBoundary--
