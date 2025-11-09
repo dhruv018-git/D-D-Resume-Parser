@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>D&D Parser – AI Resume Parser (Functional)</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
   <style>
     @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
 /* Center the two boxed sections */
 .container.features,
 .container.example {
   width: min(100%, 960px);
-  margin: 4rem auto;          /* centers them horizontally */
+  margin: 4rem auto; /* centers them horizontally */
 }
-
 /* Keep the feature cards feeling balanced even when there’s spare room */
 .container.features .feature-grid {
   justify-items: stretch;
 }
-
 /* Make sure the code block fills the blue panel and stays centered */
 .container.example pre {
   width: 100%;
   margin: 1.5rem auto 0;
 }
-
     .community-section {
   background: #f1f5f9;
   border-radius: 1.5rem;
@@ -37,7 +31,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .community-section::after {
   content: "";
   position: absolute;
@@ -46,7 +39,6 @@
   background: radial-gradient(60% 60% at 50% 0%, rgba(29,78,216,0.07), transparent 70%);
   pointer-events: none;
 }
-
 .community-subtitle {
   text-align: center;
   color: #4b5563;
@@ -54,13 +46,11 @@
   margin: 0.75rem auto 3rem;
   font-size: 1.05rem;
 }
-
 .community-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
-
 .community-card {
   background: white;
   padding: 2.25rem 2rem;
@@ -72,42 +62,35 @@
   flex-direction: column;
   gap: 1.1rem;
 }
-
 .community-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 28px 60px rgba(15, 23, 42, 0.12);
 }
-
 .community-icon {
   width: 64px;
   height: 64px;
   border-radius: 18px;
   display: grid;
-  place-items: center; 
+  place-items: center;
   background: #eff6ff;
 }
-
 .community-icon svg {
   width: 32px;
   height: 32px;
   fill: currentColor;
 }
-
 .community-icon.github { color: #111827; }
 .community-icon.linkedin { color: #0a66c2; background: rgba(10,102,194,0.08); }
 .community-icon.twitter { color: #1d9bf0; background: rgba(29,155,240,0.1); }
-
 .community-card h3 {
   margin: 0;
   font-size: 1.35rem;
   color: #111827;
 }
-
 .community-card p {
   margin: 0;
   color: #4b5563;
 }
-
 .community-cta {
   margin-top: auto;
   font-weight: 600;
@@ -117,11 +100,9 @@
   gap: 0.35rem;
   transition: color 0.2s ease;
 }
-
 .community-card:hover .community-cta {
   color: #10b981;
 }
-
 @media (max-width: 640px) {
   .community-section {
     padding: 3.5rem 1rem;
@@ -135,40 +116,38 @@
     body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #374151; line-height: 1.6; overflow-x: hidden; }
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
-
     /* Typography */
     h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: #111827; }
     h1 { font-size: 3.2rem; line-height: 1.2; }
     h2 { font-size: 2.5rem; margin-bottom: 1.5rem; text-align: center; }
     h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     p { margin-bottom: 1rem; }
-
     /* Layout */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
     .section { padding: 5rem 0; }
-
-    /* Navigation */
+    /* Navigation - made smaller */
     nav {
       position: sticky; top: 0; background: rgba(255,255,255,0.95);
       -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-      z-index: 1000; padding: 1rem 0; border-bottom: 1px solid #e5e7eb;
+      z-index: 1000; padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb;
+      transition: background 0.3s ease;
     }
     .nav-container { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: 700; font-size: 1.5rem; color: #1d4ed8; }
-    .nav-links { display: flex; gap: 2rem; font-weight: 500; }
-    .nav-links a { position: relative; }
+    .logo { font-weight: 700; font-size: 1.3rem; color: #1d4ed8; }
+    .nav-links { display: flex; gap: 1.5rem; font-weight: 500; font-size: 0.95rem; }
+    .nav-links a { position: relative; transition: transform 0.2s ease, color 0.2s ease; }
+    .nav-links a:hover { transform: scale(1.05); color: #10b981; }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
       background: #10b981; transition: width 0.3s ease;
     }
     .nav-links a:hover::after { width: 100%; }
     .auth-buttons { display: flex; gap: 1rem; }
-    .btn { padding: 0.6rem 1.2rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s ease; cursor: pointer; }
+    .btn { padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; transition: all 0.3s ease; cursor: pointer; font-size: 0.95rem; }
     .btn-outline { border: 2px solid #1d4ed8; color: #1d4ed8; }
     .btn-outline:hover { background: #1d4ed8; color: white; }
     .btn-primary { background: #1d4ed8; color: white; border: none; box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3); }
-    .btn-primary:hover { background: #1e40af; transform: translateY(-2px); }
-
+    .btn-primary:hover { background: #1e40af; transform: translateY(-2px) scale(1.02); }
     /* Hero */
     .hero { min-height: 90vh; display: flex; align-items: center; position: relative; background: linear-gradient(135deg, #dbeafe 0%, #f0fdf4 100%); }
     .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
@@ -176,7 +155,6 @@
     .hero-text p { font-size: 1.2rem; margin-bottom: 2rem; color: #4b5563; }
     .hero-mockup { position: relative; animation: float 6s ease-in-out infinite; transform-origin: center; }
     .ai-badge { position: absolute; top: 20%; right: -10%; background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); animation: pulse 2s infinite; }
-
     /* ---------- NEW: hero layered gradient + mockup glow ---------- */
   .hero {
     position: relative;
@@ -201,54 +179,43 @@
     50% { transform: translateY(-6px) scale(1.01); }
     100% { transform: translateY(0) scale(1); }
   }
-
   /* glow filter for mockup svg */
   .resume-mockup-svg { filter: drop-shadow(0 10px 24px rgba(16,185,129,0.12)); transition: transform 220ms ease, filter 220ms ease; z-index: 2; }
   .resume-mockup-svg.glow { filter: drop-shadow(0 18px 36px rgba(16,185,129,0.18)) saturate(1.05); transform: translateY(-6px) scale(1.02); }
-
   /* ensure hero content sits above decorative background and particles */
   .hero .container { position: relative; z-index: 3; }
-
   /* respects reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .hero::before, .resume-mockup-svg { animation: none !important; transition: none !important; }
   }
-
     /* Curve divider */
     .curve-divider svg { width: 100%; height: 120px; display: block; }
     .curve-divider path { fill: #f8fafc; }
-
     /* Steps */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
     .step { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease; }
     .step:hover { transform: translateY(-8px); }
-
     /* Features */
     .features { background: #fff; margin: 3rem 0; padding: 3rem; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
     .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .feature-item { display: flex; align-items: flex-start; gap: 1rem; }
     .check { color: #10b981; font-size: 1.5rem; }
-
     /* Example */
     .example { background: #2698aa; color: white; border-radius: 1rem; padding: 3rem; text-align: center; margin: 4rem 0; }
     .example pre { background: #173168; padding: 1.5rem; border-radius: 0.5rem; text-align: left; overflow-x: auto; font-size: 0.9rem; margin-top: 1rem; }
-
     /* Trust badge */
     .trust-badge { text-align: center; margin: 3rem 0; position: relative; font-weight: 600; color: #10b981; }
     .trust-badge::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); width: 120px; height: 6px; background: #10b981; border-radius: 999px; opacity: 0.8; }
-
     /* Final CTA */
     .final-cta { text-align: center; padding: 5rem 2rem; background: linear-gradient(135deg, #1d4ed8, #10b981); color: white; border-radius: 1.5rem; margin: 4rem 0; }
     .final-cta h2 { color: white; margin-bottom: 1rem; }
     .final-cta .btn-primary { animation: pulse 2s infinite; }
-
     /* Footer */
     footer { background: #111827; color: #9ca3af; padding: 3rem 0; text-align: center; }
     .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
     .social { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
     .social a { font-size: 1.5rem; color: #9ca3af; transition: color 0.3s; }
     .social a:hover { color: #10b981; }
-
     /* Social icons (footer) */
     .social-icons {
       display: flex;
@@ -285,7 +252,6 @@
   /* LinkedIn: label above, icon below -> swap order in markup for this one item */
   /* Twitter/X: place icon to the side (row layout) for prominence */
   .social-item.twitter { flex-direction: row; gap: 8px; }
-
     /* entrance animation */
     .social-icons .social-item { opacity: 0; transform: translateY(12px) scale(0.98); }
     .social-icons.show .social-item { animation: socialIn 360ms ease forwards; }
@@ -295,80 +261,65 @@
     @keyframes socialIn {
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
-
     /* mobile: stack vertically */
     @media (max-width: 767px) {
       .social-icons { gap: 0.5rem; }
       .social-item { flex-direction: row; gap: 0.5rem; padding: 6px 10px; border-radius: 8px; }
     }
-
     /* accessible focus style */
     .social-item:focus { box-shadow: 0 0 0 3px rgba(16,185,129,0.12); border-radius: 8px; }
-
   /* Batch comparison table styling */
   .match-high { background: #d1fae5; }
   .match-high td { border-color: #10B981 !important; }
   #comparisonTable th { cursor: pointer; }
-
     /* Animations */
     @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(1deg); } }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.5); } 70% { box-shadow: 0 0 0 12px rgba(29, 78, 216, 0); } 100% { box-shadow: 0 0 0 0 rgba(29, 78, 216, 0); } }
-
     /* Upload */
     .upload-area { border: 2px dashed #1d4ed8; border-radius: 1rem; padding: 2rem; text-align: center; margin: 2rem 0; transition: all 0.3s; }
     .upload-area.dragover { background: #dbeafe; border-color: #10b981; }
     #result { margin-top: 2rem; }
-
   /* Selected files display */
   #fileNameDisplay { color: #10B981; font-weight: 600; margin-top: 1rem; }
   #clearFiles { background: transparent; border: 1px solid #3B82F6; color: #3B82F6; padding: 0.45rem 0.75rem; border-radius: 8px; cursor: pointer; }
   #clearFiles:hover { background: #3B82F6; color: white; }
-
     .hr-input-container {
       margin-bottom: 1.5rem; background: #fff; padding: 2rem; border-radius: 1rem;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
-
   /* particle canvas styles */
 #particle-canvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh; 
-  pointer-events: none;   /* important — don't block clicks */
-  z-index: 30;            /* adjust if it needs to be above/below UI layers */
+  height: 100vh;
+  pointer-events: none; /* important — don't block clicks */
+  z-index: 30; /* adjust if it needs to be above/below UI layers */
   mix-blend-mode: normal;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .resume-appear, .resume-mockup-svg, .btn { animation: none !important; transition: none !important; }
 }
-
 /* Stage/entrance */
 .resume-appear { opacity: 0; transform: translateY(12px); transition: opacity 480ms ease, transform 480ms cubic-bezier(.2,.9,.3,1); }
 .resume-appear.visible { opacity: 1; transform: translateY(0); }
-
 /* Mockup float */
 .resume-mockup-svg { will-change: transform; transform-origin: 50% 50%; animation: bob 4s ease-in-out infinite; width: 360px; height: auto; display:block; margin: 0 auto; }
 @keyframes bob { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-8px) } }
-
 /* Button hover + pulse */
 .btn-primary { transition: transform 180ms ease, box-shadow 220ms ease; will-change: transform; }
 .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 30px rgba(29,78,216,0.18); }
-
 /* Ripple (JS will insert .ripple span) */
 .btn { position: relative; overflow: hidden; }
 .btn .ripple { position: absolute; border-radius: 50%; transform: scale(0); opacity: 0.6; pointer-events:none; background: rgba(255,255,255,0.25); animation: ripple 600ms ease-out; }
 @keyframes ripple { to { transform: scale(6); opacity: 0; } }
-
 /* Small utility for hero children stagger */
 .hero .stagger > * { opacity: 0; transform: translateY(12px); transition: opacity 420ms ease, transform 420ms cubic-bezier(.2,.9,.3,1); }
 .hero .stagger.show > * { opacity: 1; transform: translateY(0); }
 .hero .stagger.show > *:nth-child(1) { transition-delay: 120ms; }
 .hero .stagger.show > *:nth-child(2) { transition-delay: 240ms; }
 .hero .stagger.show > *:nth-child(3) { transition-delay: 360ms; }
-
   /* --- See It In Action split view for single result --- */
   .results-split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
   .json-panel { background: linear-gradient(180deg,#eff6ff,#dbeafe); border:1px solid #3B82F6; border-radius:8px; padding:12px; overflow:auto; }
@@ -381,7 +332,6 @@
   @media (max-width: 768px) { .results-split { grid-template-columns: 1fr; }
                             /* --- START: Responsiveness Fixes --- */
 .mobile-menu { display: none; font-weight: 600; cursor: pointer; }
-
 @media (max-width: 768px) {
   /* Hide desktop links and auth */
   .nav-links, .auth-buttons {
@@ -410,25 +360,22 @@
 <body>
   <!-- Particle canvas (non-interactive) -->
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
   <!-- rest of your page... -->
-
-
   <nav>
-    <div class="container nav-container">
-      <div class="logo">D&D Parser</div>
-      <div class="nav-links">
-        <a href="#how-it-works">How It Works</a>
-        <a href="#upload-section">Upload</a>
-        <a href="#features">Features</a>
-        <a href="#connect">Connect</a>
-      </div>
-      <div class="auth-buttons">
-              </div>
-      <div class="mobile-menu">Menu</div>
-    </div>
-  </nav>
-
+    <div class="container nav-container">
+      <div class="logo">D&D Parser</div>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#upload-section">Upload</a>
+        <a href="#features">Features</a>
+        <a href="#connect">Connect</a>
+      </div>
+      <div class="auth-buttons">
+        <button class="btn btn-outline">Login</button>
+        <button class="btn btn-primary">Free Account</button>
+      </div>
+    </div>
+  </nav>
   <section class="hero section">
     <div class="container hero-content">
       <div class="hero-text" data-aos="fade-right">
@@ -470,13 +417,11 @@
       </div>
     </div>
   </section>
-
   <div class="curve-divider">
     <svg viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0,0 C320,100 1120,20 1440,0 L1440,120 L0,120 Z"></path>
     </svg>
   </div>
-
   <section class="section" id="how-it-works">
     <div class="container">
       <h2>How <span style="color:#1d4ed8;">D&D Parser</span> Works</h2>
@@ -492,7 +437,6 @@
           <h3>1. Upload Resume</h3>
           <p>PDF, DOCX, TXT — any format works.</p>
         </div>
-
         <div class="step" data-aos="fade-up" data-aos-delay="200">
           <!-- Step 2: AI (inline SVG) -->
           <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" role="img" aria-labelledby="ico-ai">
@@ -508,7 +452,6 @@
           <h3>2. AI Extracts</h3>
           <p>Skills, jobs, education — 98% accurate.</p>
         </div>
-
         <div class="step" data-aos="fade-up" data-aos-delay="400">
           <!-- Step 3: JSON (inline SVG) -->
           <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" role="img" aria-labelledby="ico-json">
@@ -522,7 +465,6 @@
           <h3>3. View Output</h3>
           <p>Clean JSON, summary, skill cloud.</p>
         </div>
-
         <div class="step" data-aos="fade-up" data-aos-delay="600">
           <!-- Step 4: Download (inline SVG) -->
           <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" role="img" aria-labelledby="ico-download">
@@ -537,7 +479,6 @@
       </div>
     </div>
   </section>
-
   <section class="section" id="upload-section">
     <div class="container">
       <form id="uploadForm">
@@ -550,13 +491,11 @@
                  required
                  style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-family: 'Inter', sans-serif; font-size: 1rem;">
         </div>
-
         <div class="upload-area" id="uploadArea">
           <p style="font-size: 1.2rem; margin-bottom: 1rem; color: #111827; font-weight: 700;">
             <strong>Step 2:</strong> Upload Resume
           </p>
           <p><strong>Drag &amp; drop your resume here</strong> or click to upload</p>
-
           <!-- Upload controls: sun icon above the choose button -->
           <div class="upload-control" style="display:flex; flex-direction:column; align-items:center; gap:0.75rem;">
             <!-- Sun-style SVG (replaces previous upload icon) -->
@@ -579,9 +518,7 @@
               <rect x="30" y="30" width="12" height="12" rx="1.5" fill="#fff" opacity="0.95"/>
               <path d="M33 34 L39 34" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round"/>
             </svg>
-
             <input type="file" id="resumeInput" name="resume_file" accept=".pdf,.docx,.txt" style="display:none;" required>
-
             <button type="button" class="btn btn-primary" onclick="document.getElementById('resumeInput').click()" style="margin-top:0.25rem;">
               Choose Resume File
             </button>
@@ -595,12 +532,10 @@
           <p id="fileNameDisplay" style="margin-top: 1rem; color: #10B981; font-weight: 600;"> </p>
           <button type="button" id="clearFiles" class="btn btn-outline" style="display:none; margin-top:0.5rem;">Clear Files</button>
         </div>
-
         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.2rem; margin-top: 1rem; background: #10b981; border: none; animation: pulse 2s infinite;">
           Analyze &amp; Match
         </button>
       </form>
-
       <div id="result"></div>
       <!-- Comparison view for batch results -->
       <div id="comparisonView" style="display:none; margin-top:1.5rem;">
@@ -629,7 +564,6 @@
           </div>
         </div>
       </div>
-
       <div id="loadingSpinner" style="display: none; text-align: center; margin-top: 2rem;">
         <!-- Inline spinner -->
         <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem; animation: rotate 2s linear infinite;" role="img" aria-labelledby="ico-processing">
@@ -643,7 +577,6 @@
       </div>
     </div>
   </section>
-
   <section class="section" id="features">
     <div class="container features">
       <h2>Why Job Seekers Love D&D Parser</h2>
@@ -657,7 +590,6 @@
       </div>
     </div>
   </section>
-
   <section class="section">
     <div class="container example">
       <h3>See It in Action</h3>
@@ -696,17 +628,14 @@
 }</pre>
     </div>
   </section>
-
   <div class="trust-badge">
     AI Trained on Real Resumes • Backend by NLP
   </div>
-
   <section class="final-cta">
     <h2>Stop Guessing. Start Parsing.</h2>
     <p>Join job seekers to trust and support D&D Parser.</p>
     <button class="btn btn-primary" onclick="scrollToUpload()">Parse My Resume – Free</button>
   </section>
-
   <footer>
     <div class="container">
       <div class="footer-links">
@@ -718,7 +647,6 @@
     <p class="community-subtitle" data-aos="fade-up" data-aos-delay="120">
       Follow our journey, contribute, and stay in sync with new releases.
     </p>
-
     <div class="community-grid">
       <!-- GitHub -->
       <a class="community-card" href="https://github.com/dhruv018-git" target="_blank" rel="noopener noreferrer"
@@ -732,7 +660,6 @@
         <p>Explore the code, open issues, and contribute to upcoming modules.</p>
         <span class="community-cta">Go to GitHub →</span>
       </a>
-
       <!-- LinkedIn -->
       <a class="community-card" href="https://www.linkedin.com/in/dhruv-jain-161738210" target="_blank" rel="noopener noreferrer"
          data-aos="zoom-in" data-aos-delay="220" aria-label="Visit our LinkedIn page">
@@ -745,7 +672,6 @@
         <p>Stay updated with product launches, hiring news, and career tips.</p>
         <span class="community-cta">Connect on LinkedIn →</span>
       </a>
-
       <!-- Twitter/X -->
       <a class="community-card" href="https://x.com/dhruvjain880573" target="_blank" rel="noopener noreferrer"
          data-aos="zoom-in" data-aos-delay="260" aria-label="Visit our Twitter/X profile">
@@ -771,7 +697,6 @@
           </svg>
           <span class="label">GitHub</span>
         </a>
-
         <!-- LinkedIn: label above, icon below (markup order swapped intentionally) -->
         <a class="social-item linkedin" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — D and D Parser">
           <span class="label">LinkedIn</span>
@@ -780,7 +705,6 @@
             <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.99h5V24H0V8.99zM8.5 8.99h4.74v2.04h.07c.66-1.25 2.28-2.57 4.7-2.57 5.03 0 5.96 3.31 5.96 7.61V24h-5v-7.93c0-1.89-.03-4.33-2.64-4.33-2.64 0-3.04 2.06-3.04 4.19V24h-5V8.99z"/>
           </svg>
         </a>
-
         <!-- Twitter / X: icon to the side of label for a compact variation -->
         <a class="social-item twitter" href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Visit our Twitter/X profile">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg">
@@ -790,20 +714,27 @@
           <span class="label">Twitter / X</span>
         </a>
       </div>
-
       <p>&copy; 2025 D&D Parser. All rights reserved.</p>
     </div>
   </footer>
-
   <!-- JS at end for performance -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, easing: 'cubic-bezier(0.25, 0.8, 0.25, 1)', once: true });
-
+    // Nav background change on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.style.background = '#ffffff';
+        nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+      } else {
+        nav.style.background = 'rgba(255,255,255,0.95)';
+        nav.style.boxShadow = 'none';
+      }
+    });
     function scrollToUpload() {
       document.getElementById('upload-section').scrollIntoView({ behavior: 'smooth' });
     }
-
     const uploadForm = document.getElementById('uploadForm');
     const resumeInput = document.getElementById('resumeInput');
     const uploadArea = document.getElementById('uploadArea');
@@ -811,7 +742,6 @@
     const fileNameDisplay = document.getElementById('fileNameDisplay');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const hrSkillsInput = document.getElementById('hr_skills_input');
-
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(evt => {
       uploadArea.addEventListener(evt, preventDefaults, false);
     });
@@ -822,13 +752,10 @@
     ['dragleave', 'drop'].forEach(evt => {
       uploadArea.addEventListener(evt, () => uploadArea.classList.remove('dragover'), false);
     });
-
     uploadArea.addEventListener('drop', handleDrop, false);
     resumeInput.addEventListener('change', handleFiles, false);
-
     const batchToggleEl = document.getElementById('batchToggle');
     const clearBtn = document.getElementById('clearFiles');
-
     // Ensure the input allows multiple selection only when batch mode is enabled
     if (batchToggleEl) {
       batchToggleEl.addEventListener('change', (ev) => {
@@ -843,7 +770,6 @@
         }
       }, false);
     }
-
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
         resumeInput.value = '';
@@ -852,7 +778,6 @@
         clearBtn.style.display = 'none';
       }, false);
     }
-
     function handleDrop(e) {
       const dt = e.dataTransfer;
       if (!dt || !dt.files || dt.files.length === 0) return;
@@ -867,7 +792,6 @@
         if (clearBtn) clearBtn.style.display = 'none';
         return;
       }
-
       if (isBatch) {
         // show names and provide a remove button per file
         function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -887,21 +811,18 @@
         if (clearBtn) clearBtn.style.display = 'inline-block';
       }
     }
-
     // Remove a file from the stored selection by name
     function removeSelectedFile(name) {
       const sel = window._selectedFiles || [];
       window._selectedFiles = sel.filter(f => f.name !== name);
       renderSelectedFiles();
     }
-
     function handleFiles(e) {
       const incoming = e.target.files ? Array.from(e.target.files) : [];
       const isBatch = batchToggleEl && batchToggleEl.checked;
       if (!incoming.length) {
         return;
       }
-
       if (isBatch) {
         // append deduped to stored selection
         let existing = window._selectedFiles && Array.isArray(window._selectedFiles) ? window._selectedFiles.slice() : [];
@@ -920,36 +841,28 @@
         renderSelectedFiles();
       }
     }
-
     uploadForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-
       // Use only the Step 1 HR skills input (`#hr_skills_input`) as the canonical source.
       if (!hrSkillsInput.value.trim()) { alert('Please enter the required HR Skills.'); return; }
-
       // Files may be stored in resumeInput.files (single selection) or window._selectedFiles (batch cumulative selection)
       const selectedFilesCount = (window._selectedFiles && window._selectedFiles.length) ? window._selectedFiles.length : (resumeInput.files && resumeInput.files.length ? resumeInput.files.length : 0);
       if (selectedFilesCount === 0) { alert('Please select a resume file first.'); return; }
-
       const isBatch = document.getElementById('batchToggle')?.checked;
-
       resultDiv.innerHTML = '';
       document.getElementById('comparisonView').style.display = 'none';
       loadingSpinner.style.display = 'block';
       document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
       try {
         if (isBatch) {
           // Batch path: build custom FormData and POST to /batch-analyze
           let files = (window._selectedFiles && window._selectedFiles.length) ? window._selectedFiles.slice() : Array.from(resumeInput.files || []);
           if (!files || files.length === 0) { alert('Please select at least one resume for batch analysis.'); return; }
           if (files.length > 5) { alert('Max 5 files allowed for batch analysis — extra files will be ignored.'); files = files.slice(0,5); }
-
           const fd = new FormData();
           // include hr_skills from Step 1 (canonical input)
           fd.append('hr_skills', hrSkillsInput.value.trim());
           files.forEach((f) => fd.append('files[]', f, f.name));
-
          const response = await fetch('/batch-analyze', { method: 'POST', body: fd });
           if (!response.ok) {
             const err = await response.json().catch(() => ({ message: 'Server error' }));
@@ -966,12 +879,10 @@
             method: 'POST',
             body: formData
           });
-
           if (!response.ok) {
             const errorData = await response.json().catch(() => ({ message: 'Server error or invalid response format.' }));
             throw new Error('API Request Failed: ' + response.status + ' - ' + (errorData.message || 'Unknown Error'));
           }
-
           const data = await response.json();
           displayResult(data);
         }
@@ -988,17 +899,14 @@
         loadingSpinner.style.display = 'none';
       }
     });
-
     function displayBatchResult(data) {
       // data.parsed = [{candidate, text_snippet, top_tokens}], data.comparisons.similarity_matrix
       const tableBody = document.getElementById('comparisonBody');
       const summary = document.getElementById('comparisonSummary');
       tableBody.innerHTML = '';
       summary.textContent = `Common tokens across resumes: ${ (data.comparisons && data.comparisons.common_skills && data.comparisons.common_skills.length) ? data.comparisons.common_skills.join(', ') : 'None' }`;
-
       // keep a copy of last batch for sorting/export
       window._lastBatch = data;
-
       function renderRows(rows) {
         tableBody.innerHTML = '';
         // determine threshold: if multiple resumes present, use 50%, otherwise 60%
@@ -1022,9 +930,7 @@
           tableBody.appendChild(tr);
         });
       }
-
       renderRows(data.parsed || []);
-
       // sortable headers
       document.querySelectorAll('#comparisonTable thead th[data-col]').forEach(th => {
         th.style.userSelect = 'none';
@@ -1041,7 +947,6 @@
           renderRows(rows);
         };
       });
-
       // export CSV
       document.getElementById('exportCsvBtn').onclick = () => {
         const rows = (window._lastBatch && window._lastBatch.parsed) ? window._lastBatch.parsed : [];
@@ -1058,22 +963,18 @@
         a.download = 'batch_matches.csv';
         a.click();
       };
-
       document.getElementById('comparisonView').style.display = 'block';
       document.getElementById('comparisonView').scrollIntoView({behavior:'smooth'});
     }
-
     function renderSimBar(score, cls, pct) {
       const color = score >= 0.75 ? '#10B981' : (score >= 0.5 ? '#3B82F6' : '#9CA3AF');
       const width = Math.round(Math.max(0, Math.min(1, score)) * 100);
       return `<div style="display:flex; align-items:center; gap:8px;"><svg width="120" height="12" style="background:#eef2ff; border-radius:6px; overflow:visible;" role="img" aria-label="Similarity ${pct}%"><rect x="0" y="1" width="120" height="10" rx="6" fill="#eef2ff"></rect><rect x="0" y="1" width="${width * 1.2}" height="10" rx="6" fill="${color}"></rect></svg><span style="min-width:36px; color:#374151; font-weight:600;">${pct}%</span></div>`;
     }
-
     function displayResult(data) {
-      // populate the result preview areas: left JSON panel and right quick table
+      // data layered
       const jsonString = JSON.stringify(data, null, 2);
       try { document.getElementById('jsonExample').textContent = jsonString; } catch (e) { /* ignore */ }
-
       // Build quick single-row table using HR skills from the canonical input if provided
       try {
         const requiredRaw = (hrSkillsInput && hrSkillsInput.value && hrSkillsInput.value.trim()) ? hrSkillsInput.value.trim() : '';
@@ -1084,15 +985,12 @@
           // fallback: use top 3 extracted skills
           required = data.skills.slice(0, 3);
         }
-
         const resumeSkills = (data.skills && Array.isArray(data.skills)) ? data.skills.map(s => String(s).toLowerCase()) : [];
         const reqLower = required.map(r => String(r).toLowerCase());
         const matched = reqLower.filter(r => resumeSkills.includes(r));
         const pct = required.length ? (matched.length / required.length * 100) : 0;
         const selected = pct >= 80;
-
         const pctBar = `<svg width="120" height="12" style="background:#eef2ff; border-radius:6px; overflow:visible; vertical-align:middle;"><rect x="0" y="1" width="120" height="10" rx="6" fill="#eef2ff"></rect><rect x="0" y="1" width="${Math.round(Math.max(0,Math.min(1,pct/100))*120)}" height="10" rx="6" fill="${pct>=80? '#10B981': (pct>=50? '#3B82F6':'#9CA3AF')}"></rect></svg>`;
-
         const tr = document.createElement('tr');
         if (selected) tr.className = 'match-high';
         tr.innerHTML = `
@@ -1108,7 +1006,6 @@
           tbody.appendChild(tr);
           const tbl = document.getElementById('single-table'); if (tbl) tbl.style.display = 'table';
         }
-
         // hide batch comparison view when showing single split
         const comp = document.getElementById('comparisonView'); if (comp) comp.style.display = 'none';
         // scroll See It in Action into view
@@ -1116,11 +1013,9 @@
       } catch (e) {
         console.error('Render single table failed', e);
       }
-
       // visual delight: confetti + mockup glow
       try { confettiBurst(); document.querySelector('.resume-mockup-svg')?.classList.add('glow'); setTimeout(()=>document.querySelector('.resume-mockup-svg')?.classList.remove('glow'), 1800); } catch(e){/*fail silently*/}
     }
-
     function copyResult() {
       const preElement = document.querySelector('#result pre');
       if (!preElement) return;
@@ -1131,12 +1026,10 @@
           alert('Failed to copy. Please manually select and copy the text.');
         });
     }
-
     document.addEventListener('DOMContentLoaded', () => {
       // staged hero entrance
       const stagger = document.querySelector('.hero .stagger');
       if (stagger) setTimeout(() => stagger.classList.add('show'), 180);
-
       // add ripple handler to buttons
       document.querySelectorAll('.btn').forEach(btn => {
         btn.addEventListener('click', function (e) {
@@ -1151,19 +1044,16 @@
           setTimeout(() => ripple.remove(), 700);
         }, { passive: true });
       });
-
       // small test for image/svg availability (logs)
       const svg = document.querySelector('.resume-mockup-svg');
       if (svg) console.info('Hero mockup SVG present');
     });
   </script>
-
   <!-- ---------- NEW: Enhanced particle engine + confetti ---------- -->
   <script>
   (function () {
     // disable heavy effects on touch devices
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
-
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d', { alpha: true });
     let w = 0, h = 0, dpr = Math.max(1, window.devicePixelRatio || 1);
@@ -1176,11 +1066,9 @@
     }
     window.addEventListener('resize', resize, { passive: true });
     resize();
-
     const MAX_PARTICLES = 120;
     const PALETTE = [{h:200,s:90,l:55},{h:170,s:90,l:45},{h:210,s:80,l:55}]; // blue/teal tones
     const particles = [];
-
     class Particle {
       constructor(x,y,vx,vy,size,life,hue) {
         this.x=x; this.y=y; this.vx=vx; this.vy=vy; this.size=size; this.life=life; this.age=0; this.hue=hue; this.alpha=1;
@@ -1201,7 +1089,6 @@
         ctx.fill();
       }
     }
-
     function spawn(x,y,vx,vy,count){
       for(let i=0;i<count;i++){
         if(particles.length>=MAX_PARTICLES) break;
@@ -1217,7 +1104,6 @@
         particles.push(new Particle(px,py,pvx,pvy,size,life,hueObj.h));
       }
     }
-
     let lastPos=null;
     document.addEventListener('mousemove', (ev) => {
       const now = performance.now();
@@ -1229,25 +1115,21 @@
       const speed = dist / Math.max(dt,0.001);
       const extra = Math.min(6, Math.floor(speed/220));
       spawn(x, y, dx/Math.max(dt,0.001), dy/Math.max(dt,0.001), 3 + extra);
-
       // parallax mockup shift
       const mock = document.querySelector('.resume-mockup-svg');
       if (mock) mock.style.transform = `translate(${(x - window.innerWidth/2)*0.004}px, ${(y - window.innerHeight/2)*0.003}px)`;
       lastPos = {x,y,t:now};
     }, { passive: true });
-
     // gentle restore of mockup transform
     setInterval(()=> {
       const mock = document.querySelector('.resume-mockup-svg');
       if (mock) mock.style.transform = '';
     }, 1200);
-
     let lastFrame = performance.now();
     function frame(now) {
       const dt = Math.min(0.05, (now - lastFrame)/1000);
       lastFrame = now;
       ctx.clearRect(0,0,w,h);
-
       for(let i=particles.length-1;i>=0;i--){
         if(!particles[i].update(dt)) particles.splice(i,1);
       }
@@ -1255,9 +1137,7 @@
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
-
     document.addEventListener('visibilitychange', ()=> { if(document.hidden) particles.length=0; });
-
     // lightweight confetti burst (called on success)
     window.confettiBurst = function(count=60){
       const cx = window.innerWidth/2, cy = window.innerHeight/3;
@@ -1275,5 +1155,3 @@
   </script>
 </body>
 </html>
-
-
