@@ -928,7 +928,7 @@
           fd.append('hr_skills', hrSkillsInput.value.trim());
           files.forEach((f) => fd.append('files[]', f, f.name));
 
-          const response = await fetch('http://127.0.0.1:5000/batch-analyze', { method: 'POST', body: fd });
+         const response = await fetch('/batch-analyze', { method: 'POST', body: fd });
           if (!response.ok) {
             const err = await response.json().catch(() => ({ message: 'Server error' }));
             throw new Error(err.message || 'Batch request failed');
@@ -940,7 +940,7 @@
           const formData = new FormData(uploadForm);
           // ensure the HR skills value from Step 1 is included
           formData.set('hr_skills', hrSkillsInput.value.trim());
-          const response = await fetch('http://127.0.0.1:5000/upload', {
+          const response = await fetch('/upload', {
             method: 'POST',
             body: formData
           });
