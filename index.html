@@ -378,7 +378,33 @@
   .table-panel h4 { margin:0 0 8px 0; color:#065f46; }
   #single-table { width:100%; border-collapse:collapse; display:none; }
   #single-table th, #single-table td { padding:0.6rem; border:1px solid #e6eefc; text-align:left; }
-  @media (max-width: 768px) { .results-split { grid-template-columns: 1fr; } }
+  @media (max-width: 768px) { .results-split { grid-template-columns: 1fr; }
+                            /* --- START: Responsiveness Fixes --- */
+.mobile-menu { display: none; font-weight: 600; cursor: pointer; }
+
+@media (max-width: 768px) {
+  /* Hide desktop links and auth */
+  .nav-links, .auth-buttons {
+    display: none;
+  }
+  /* Show mobile menu button */
+  .mobile-menu {
+    display: block;
+  }
+  /* Stack hero content */
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-mockup {
+    margin-top: 2rem;
+    order: -1; /* Move image above text */
+  }
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+}
+/* --- END: Responsiveness Fixes --- */}
   </style>
 </head>
 <body>
@@ -388,24 +414,20 @@
   <!-- rest of your page... -->
 
 
-  <nav>
-    <div class="container nav-container">
-      <div class="logo">D&D Parser</div>
-      <div class="nav-links">
-        <a href="#">Builder</a>
-        <a href="#">Resume</a>
-        <a href="#">CV</a>
-        <a href="#">Cover Letter</a>
-        <a href="#">Advice</a>
-        <a href="#">Resources</a>
-      </div>
-      <div class="auth-buttons">
-        <button class="btn btn-outline">Login</button>
-        <button class="btn btn-primary">Free Account</button>
-      </div>
-      <div class="mobile-menu">Menu</div>
-    </div>
-  </nav>
+  a <nav>
+    <div class="container nav-container">
+      <div class="logo">D&D Parser</div>
+      <div class="nav-links">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#upload-section">Upload</a>
+        <a href="#features">Features</a>
+        <a href="#connect">Connect</a>
+      </div>
+      <div class="auth-buttons">
+              </div>
+      <div class="mobile-menu">Menu</div>
+    </div>
+  </nav>
 
   <section class="hero section">
     <div class="container hero-content">
@@ -455,7 +477,7 @@
     </svg>
   </div>
 
-  <section class="section">
+  <section class="section" id="how-it-works">
     <div class="container">
       <h2>How <span style="color:#1d4ed8;">D&D Parser</span> Works</h2>
       <div class="steps">
@@ -622,7 +644,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="features">
     <div class="container features">
       <h2>Why Job Seekers Love D&D Parser</h2>
       <div class="feature-grid">
@@ -690,7 +712,7 @@
       <div class="footer-links">
         <a href="#">Privacy</a> | <a href="#">Terms</a> | <a href="#">Contact</a>
       </div>
-<section class="section community-section">
+<section class="section community-section" id="connect">
   <div class="container">
     <h2 data-aos="fade-up">Connect with <span style="color:#1d4ed8;">D&amp;D Parser</span></h2>
     <p class="community-subtitle" data-aos="fade-up" data-aos-delay="120">
@@ -699,7 +721,7 @@
 
     <div class="community-grid">
       <!-- GitHub -->
-      <a class="community-card" href="https://github.com/youruser" target="_blank" rel="noopener noreferrer"
+      <a class="community-card" href="https://github.com/dhruv018-git" target="_blank" rel="noopener noreferrer"
          data-aos="zoom-in" data-aos-delay="180" aria-label="Visit our GitHub repository">
         <div class="community-icon github">
           <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
@@ -712,7 +734,7 @@
       </a>
 
       <!-- LinkedIn -->
-      <a class="community-card" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
+      <a class="community-card" href="https://www.linkedin.com/in/dhruv-jain-161738210" target="_blank" rel="noopener noreferrer"
          data-aos="zoom-in" data-aos-delay="220" aria-label="Visit our LinkedIn page">
         <div class="community-icon linkedin">
           <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
@@ -725,7 +747,7 @@
       </a>
 
       <!-- Twitter/X -->
-      <a class="community-card" href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer"
+      <a class="community-card" href="https://x.com/dhruvjain880573" target="_blank" rel="noopener noreferrer"
          data-aos="zoom-in" data-aos-delay="260" aria-label="Visit our Twitter/X profile">
         <div class="community-icon twitter">
           <svg viewBox="0 0 24 24" aria-hidden="true" role="img">
@@ -1253,3 +1275,4 @@
   </script>
 </body>
 </html>
+
