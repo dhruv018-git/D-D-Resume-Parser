@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import tempfile
 import shutil
 import logging
@@ -67,10 +67,10 @@ except Exception:
         'a','an','and','the','is','in','it','of','to','for','on','with','as','by'
     }
 
-# '/' (default URL) ke liye ek 'route' banayein
 @app.route("/")
-def hello_world():
-    return "Hello World! Resume Matcher Backend is running."
+def serve_index():
+    # This tells Flask to send the 'index.html' file
+    return send_from_directory('.', 'index.html')
 
 # File Upload aur Data Extraction ke liye API route
 @app.route("/upload", methods=["POST"])
@@ -454,3 +454,4 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host='0.0.0.0', port=port)
+
